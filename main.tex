@@ -1,27 +1,27 @@
 % main file
 \documentclass[12pt, twoside, a4paper, openright]{book}
+\usepackage[utf8]{inputenc} % Compatibility for spanish accents
 
-\newcommand{\egilea}{Hau nire izena da}
-\newcommand{\izenburua}{Hau proiektuaren izenburua da}
-\newcommand{\data}{2013ko maiatzaren 25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Start Configuration %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\euskaraz}{eu} % Comentar para castellano
+\newcommand{\egilea}{Name Surname}
+\newcommand{\izenburua}{Thesis Title}
+\newcommand{\masterDate}{2016}
+\newcommand{\masterName}{Master's degree name}
+\newcommand{\masterSpecialization}{Master's degree subname}
 
-% Nota Importante: En el caso de castellano, la codificación de los archivos
-% deberá ser utf-8
+% Comment unused languages
+%\newcommand{\documentLanguageBasque}{eu}
+\newcommand{\documentLanguageSpanish}{es}
+%\newcommand{\documentLanguageEnglish}{en}
 
 \input{template/my-packages}
 
-\ifdefined\euskaraz
-	\newcommand{\espezialitatea}{konputagailuen Ingeniaritza}
-	% \newcommand{\espezialitatea}{Konputazioa}
-	% \newcommand{\espezialitatea}{Software Ingeniaritza}
-\else
-	\newcommand{\espezialitatea}{Ingeniería de Computadores}
-	% \newcommand{\espezialitatea}{Computación}
-	% \newcommand{\espezialitatea}{Ingeniería del Software}
-\fi
-
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% End configuration %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{\izenburua}
 \author{\egilea}
@@ -58,17 +58,25 @@
 	\fancyhf[ORH,ELH]{\thepage}
 
 \mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%
+%%% Content files %%%
+%%%%%%%%%%%%%%%%%%%%%
 \input{1-intro}
 \input{2-phd-dop}
 \input{3-development}
 
-\ifdefined\euskaraz
+\ifdefined\documentLanguageBasque
 \input{4-examples-eu}
 \else
 \input{5-examples-es}
 \fi
 
 \input{9-conclusions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% End content files %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \noappendicestocpagenum
 \appendixpage

@@ -1,6 +1,5 @@
 % Codificación del archivo / fitxategiaren kudeaketa
 \usepackage{ucs}
-\usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 
 
@@ -452,37 +451,45 @@
 % ################################################################
 
 
-% Azaleko testua
-\ifdefined\euskaraz
-	\newcommand{\upvehu}{Euskal Herriko Unibertsitatea UPV/EHU}
-	\newcommand{\gradua}{Informatika Ingeniaritzako Gradua}
-	\newcommand{\gapizenburua}{Gradu Amaierako Proiektua}
-	\newcommand{\informatikafakultatea}{Informatika Fakultatea}
-	\newcommand{\abstract}{Laburpena}
-\else
-	\newcommand{\upvehu}{Universidad del País Vasco UPV/EHU}
-	\newcommand{\gradua}{Grado en Ingeniería Informática}
-	\newcommand{\gapizenburua}{Proyecto de Fin de Grado}
-	\newcommand{\informatikafakultatea}{Facultad de Informática}
-	\newcommand{\abstract}{Resumen}
+% Cover translatable text
+\ifdefined\documentLanguageBasque
+	\providecommand{\upvehu}{Euskal Herriko Unibertsitatea UPV/EHU}
+	\providecommand{\gradua}{\masterName}
+	\providecommand{\mapizenburua}{Master Amaierako Tesia}
+	\providecommand{\informatikafakultatea}{Informatika Fakultatea}
+	\providecommand{\abstract}{Laburpena}
+	\providecommand{\authorLabel}{Egilea}
+\fi
+\ifdefined\documentLanguageSpanish
+	\providecommand{\upvehu}{Universidad del País Vasco UPV/EHU}
+	\providecommand{\mapizenburua}{Tesis fin de Máster}
+	\providecommand{\informatikafakultatea}{Facultad de Informática}
+	\providecommand{\abstract}{Resumen}
+	\providecommand{\authorLabel}{Autor}
+\fi
+\ifdefined\documentLanguageEnglish
+	\providecommand{\upvehu}{University of the Basque Country UPV/EHU}
+	\providecommand{\mapizenburua}{Master's degree Thesis}
+	\providecommand{\informatikafakultatea}{Faculty of Computer Science}
+	\providecommand{\abstract}{Abstract}
+	\providecommand{\authorLabel}{Author}
 \fi
 
 \usepackage[font=small,labelfont=bf]{caption}
 
-\ifdefined\euskaraz
+% General translatable text and properties
+\ifdefined\documentLanguageBasque
 	\usepackage[basque]{babel}
-	% \hyphenation{Ko-man-do-in-ter-pre-ta-tzailea ba-te-ra-ga-rri-ta-suna ezau-garri}
-
 	\addto\captionsbasque{
 		\renewcommand{\contentsname}{Gaien aurkibidea}
 		\renewcommand{\listfigurename}{Irudien aurkibidea}
 		\renewcommand{\listtablename}{Taulen aurkibidea}
-		% \renewcommand{\listalgorithmname}{Algoritmoen zerrenda}
+		%\renewcommand{\listalgorithmname}{Algoritmoen zerrenda}
 		\renewcommand{\appendixname}{Eranskina}%
 		\renewcommand{\appendixpagename}{Eranskinak}
 		\renewcommand{\appendixtocname}{Eranskinak}
-		% \renewcommand{\bibname}{Bibliografia}
-		% \renewcommand{\abstractname}{Laburpena}
+		\renewcommand{\bibname}{Bibliografia}
+		\renewcommand{\abstractname}{Laburpena}
 		%% Hau ez badut jartzen, Irudia eta Taula maiuskulaz jartzen ditu
 		\renewcommand{\tablename}{Taula}
 		\renewcommand{\figurename}{Irudia}
@@ -495,19 +502,30 @@
 		% \renewcommand*{\pagelistname}{Orri zerrenda}%
 		% \renewcommand*{\glssymbolsgroupname}{Symboloak}%
 		% \renewcommand*{\glsnumbersgroupname}{Zenbakiak}%
-}
-
+		% Sections
+		\providecommand{\introduction}{Sarrera}
+		\providecommand{\conclusions}{Ondorioak}
+	}
 	%% Captionak euskarazko ordenean
 	\DeclareCaptionLabelFormat{euskaraz}{#2\bothIfSecond{\nobreakspace}{#1}}
 	\captionsetup{labelformat=euskaraz}
-\else
+\fi
+
+\ifdefined\documentLanguageSpanish
 	\usepackage[spanish]{babel}
 	\addto\captionsspanish{
-		\renewcommand{\tablename}{Tabla}
+		\renewcommand{\contentsname}{Índice de capítulos}
+		\renewcommand{\listfigurename}{Índice de figuras}
 		\renewcommand{\listtablename}{Indice de tablas}
+		%\renewcommand{\listalgorithmname}{Índice de algoritmos}
 		\renewcommand{\appendixname}{Anexo}
 		\renewcommand{\appendixpagename}{Anexos}
 		\renewcommand{\appendixtocname}{Anexos}
+		\renewcommand{\bibname}{Bibliografía}
+		\renewcommand{\abstractname}{Resumen}
+		% Sections
+		\providecommand{\introduction}{Introducción}
+		\providecommand{\conclusions}{Conclusiones}
 	}
 	
 	% tabla de contenido sin numeracion 
@@ -521,12 +539,19 @@
 		% \renewcommand{tablename}{tabla}
 \fi
 
+\ifdefined\documentLanguageEnglish
+	\usepackage[english]{babel}
+	% Sections
+	\providecommand{\introduction}{Introduction}
+	\providecommand{\conclusions}{Conclusiones}
+\fi
+
 \usepackage[hyperindex,bookmarks,colorlinks=true,citecolor=blue,urlcolor=blue,linkcolor=blue,pdftex,unicode]{hyperref}
 
 \hypersetup{
 	pdfauthor = {\egilea},
 	pdftitle = {\izenburua},
-	pdfsubject = {\gapizenburua - \informatikafakultatea},
+	pdfsubject = {\mapizenburua - \informatikafakultatea},
 	pdfkeywords = {\today},
 	pdfcreator = {},
 	pdfproducer = {}
