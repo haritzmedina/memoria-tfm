@@ -1,0 +1,32 @@
+\chapter{Extracción y manipulación de datos}
+
+La obtención, estructuración y consulta de información no siempre es un problema de fácil resolución. Tal y como se ha mencionado en capítulos anteriores, la obtención e interpretación de los datos requiere de cierto conocimiento.
+
+En la obtención, se requiere de conocimiento para saber dónde está esa información, o a qué recursos (web, bases de datos, documentos de texto, \dots) se ha de acceder para la obtención de la misma. A la falta de recursos para resolver esta problemática se le denomina \emph{Lack of Knowledge in Information Retrieval}, o falta de conocimiento para la recuperación de información.
+
+En la actualidad la falta de conocimiento es un síntoma habitual dentro de la interacción de los usuarios con los sistemas de información. Esto es debido a dos factores principales:
+\begin{itemize}  
+	\item \textbf{Casos de uso de los usuarios}: un usuario habitualmente necesita de multiples datos para resolver su problema, es decir, que haya información relacionada, pero que está segregada en diferentes sitios web, aunque en la realidad son cosas muy afines. Un ejemplo práctico podría ser el usuario que para ir a un sitio en transporte público ha de coger un tren y un autobús. En principio ambos son transportes públicos y la estación destino del primero puede coincidir con la estación de salida del segundo. Sin embargo, cada compañía de autobús y tren tiene su propia web, con su propia estructura y su propio modelo de interacción y navegación. Puede darse el caso de que el usuario ni conozca en qué sitio web debe de mirar para conocer los horarios del bus que ha de coger. 
+	\item \textbf{Volumen de información}: el volumen de datos digitales mundial se duplica cada dos años\footnote{Aumento del Universo Digital: \url{http://www.computerworld.es/tendencias/el-universo-digital-se-expande-acelerado-por-el-crecimiento-de-los-datos}}, donde gran parte de ella es accesible vía web. Esto genera que cada vez sean más los usuarios que recurren a la web para la búsqueda de información. Mediante los buscadores se puede indexar y extraer la información que el usuario requiere, pero al buscar entre tal cantidad de datos, no es tan sencillo dar con la información que se necesita. Una de las causas es que la información no esté estructurada de la manera en la que el usuario la consume. Siguiendo el ejemplo de los medios de transporte, hay sitios web que muestran una tabla con todos los horarios entre todas las paradas, otros que hacen un uso de información en tiempo real para ver el paso del próximo autobús y otras mediante consultas entre origen y destino a un determinado formulario.
+\end{itemize}
+
+Se dice que en la actualidad entre el 80 y 90\% de los datos están sin estructurar\footnote{¿Qué son los datos sin estructurar? \url{http://www.webopedia.com/TERM/U/unstructured_data.html}}. Esto implica que extraer el conocimiento pueda llegar a ser bastante tedioso. Actualmente existen múltiples técnicas para utilizar estos datos no estructurados dentro del ámbito del Big Data. Al ser una problemática mayor, en este trabajo se ha decidido trabajar con datos estructurados para consultar posteriormente por los bots conversacionales.
+
+En el próximo apartado se estudiará que para extraer los datos de diferentes sitios web se ha utilizado una técnica de web scraping que permite representar la información de un sitio web en tablas.
+
+%TODO Hablar de la interpretación de los datos
+
+\section{Web scraping para datos de forma tabular}
+
+El web scraping es una técnica que permite la extracción de información de sitios web para generar datos estructurados. Estos sitios web están habitualmente diseñados bajo el estándar HTML (aunque también se puede extraer información de XML, json, etc.) y utilizan el protocolo HTTP para realizar consultas al servidor web. En la actualidad el web scraping se ha convertido en una técnica muy recurrida para extraer información de sitios web de terceros. 
+
+Sin embargo la web es un cúmulo de tecnologías que permiten hoy en día ofrecer más dinamicidad como javascript, AJAX, WebGL,... Estas tecnologías hacen bastante más complejo realizar scraping de un sitio web. Esto es debido a que la estructura del sitio web no es siempre la misma, ya sea por la propio comportamiento de javascript o porque el sitio web se va actualizando y va cambiando su estructura y diseño.
+
+Debido a la gran complejidad que presenta el recabar estos datos se ha decidido optar por trabajar con datos en una estructura estable. Una de las estructuras más utilizadas para el almacenamiento de información son los datos tabulares o tablas de bases de datos relacionales. Sin embargo, la mayoría de sitios web no disponen de datos almacenados de forma tabular.
+
+Para solventar esta problemática existen múltiples herramientas de web scraping que extraen datos con forma de tabla. Una de las principales ventajas de estas herramientas es que mediante heurísticos permiten extraer datos con forma de tabla.
+
+\section{Almacenamiento de tablas en Google SpreadSheets}
+
+
+\section{Interpretación de datos tabulares}
