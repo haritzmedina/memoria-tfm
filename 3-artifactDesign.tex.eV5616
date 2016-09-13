@@ -1,0 +1,22 @@
+\chapter{Diseño de los SheetChat}
+
+El diseño de la solución que se ha adoptado para la generación de chatbots o agentes conversacionales utilizando hojas de cálculo se divide en dos partes claramente diferenciadas. Esto es debido al objetivo que se ha presentado en los anteriores apartados, que es generar un chatbot para la consulta de datos extraidos en hojas de cálculo. Es por tanto que por un lado hay que definir el origen de datos, los Sheet u hojas de cálculo. Por otro lado el cómo se consulta los datos, el chat o la conversación que se define para obtener los resultados.
+
+En el Apartado \ref{sec:Sheet} se hablará sobre cómo se manejan las hojas de cálculo para su posterior consulta mediante un chatbot. En el Apartado \ref{sec:Chat} se describirá cómo se define un chatbot, el tipo de consultas y el procedimiento para hacerlas. Asimismo se mostrará el cómo se realiza la humanización de un chatbot, que permite mejorar la experiencia de usuario a la hora de conversar.
+
+\section{Sheet}
+\label{sec:Sheet}
+
+Las hojas de cálculo son unas herramientas muy potentes que permiten además de generar gráficas o trabajar con complejas funciones matemáticas, el almacenar datos en forma matricial (filas y columnas). Las hojas de cálculo están orientadas al análisis de datos y las bases de datos al almacenamiento de las mismas, sin embargo, ambas almacenan datos basados en columnas y filas (o tuplas). 
+
+
+
+\section{Chat}
+\label{sec:Chat}
+
+
+\subsection{Consultas}
+
+
+\subsection{Humanizacion}
+

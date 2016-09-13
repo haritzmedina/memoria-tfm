@@ -1,0 +1,145 @@
+\chapter{Casos de estudio}
+
+El diagrama de características estudiado previamente se ha de resolver en la definición de un chatbot. En este apartado se estudiará demostrará el funcionamiento del DSL definido para la creación de un SheetChat. Para ello se tienen que tener en cuenta todas las características previamente mencionadas, la definición del origen de datos, la creación de una conversación que nos proporcione una petición de datos de entrada y su salida asociada; y no menos importante, los recursos que nos permitan humanizar el bot para ofrecer una experiencia de usuario agradable.
+
+Para ello en este trabajo se han elaborado tres ejemplos. El primero de ellos es dado las notas de dos asignaturas impartidas por un profesor de primaria, el poder preguntar por las notas de los alumnos que tiene. El segundo de los ejemplos permite dado un calendario de sesiones de un congreso científico, en este caso extraido del WISE de 2015\footnote{Calendario con las diferentes sesiones del congreso WISE: \url{http://www4.cis.fiu.edu/wise2015/@schema.html}}, poder obtener información sobre qué sesiones hay en los diferentes slots (u horarios). Por último, el tercer ejemplo permite, dada una hoja de cálculo autogenerada de una búsqueda de restaurantes de Miami en el sitio web Tripadvisor, obtener restaurantes por tipo de comida.
+
+Los tres casos de estudio tendrán la misma estructura. En primer lugar se abordará el problema que el usuario tiene. En segundo lugar se realizará un análisis de las preguntas o cuestiones que tendrá que ser capaz de resolver el chatbot. Posteriormente se hará hincapié en la definición del DSL que tendrá que hacer el usuario para resolver su problemática. Finalmente se mostrará un ejemplo de interacción entre el chatbot generado y el usuario.
+
+\section{Ejemplo 1: Notas de asignaturas impartidas por un profesor}
+
+Para el primer ejemplo la audiencia objetivo es un profesor de instituto que dispone de las notas de sus alumnos almacenadas en hojas de cálculo. Él es profesor de dos asignaturas Matemática y Física.
+
+\subsection{Hoja de cálculo con los datos}
+
+Para el almacenamiento de las notas de sus alumnos dispone de dos hojas de cálculo, una con las notas de Matemática (ver Figura \ref{fig:sheetnotasMate}) y otra para las calificaciones de la asignatura de Física (ver Figura \ref{fig:sheetNotasFisica}).
+
+Tal y como se puede observar en la Figura \ref{fig:sheetNotasMate} el profesor tiene las notas de cada uno de sus alumnos que va rellenando a medida que se les evalúa de los diferentes aspectos de las asignaturas. Por lo tanto, cada fila representa a un alumno y cada columna a cada concepto a evaluar de la asignatura.
+
+En el método de evaluación empleado por el profesorado se tiene en cuenta trabajos de clase o ejercicios y exámenes durante la evaluación continua. En caso de que la media ponderada de estos parciales supere un 5 el alumno habrá aprobado mediante la evaluación continua. En caso contrario, tendrá que presentarse a un examen final con todo el temario del curso. A modo de ejemplo se puede visualizar en la Figura \ref{fig:sheetNotasMate} como el alumno Adrian Arana ha aprobado la evaluación continua con un 5.9 mientras que Alberto Ballester tuvo que presentarse al examen final para aprobar dado que en la evaluación continua su nota era de 3.85.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/sheetNotasMate.png}
+	\caption{Hoja de cálculo del profesor para la asignatura de matemática.} \label{fig:sheetNotasMate}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/sheetNotasFisica.png}
+	\caption{Hoja de cálculo del profesor para la asignatura de física.} \label{fig:sheetNotasFisica}
+\end{figure}
+
+\subsection{Análisis de preguntas}
+\label{sec:queriesNotas}
+
+Una vez conocidos los datos almacenados, el profesor que quiere generar un chatbot tiene que tener en cuenta qué tipo de análisis quiere hacer sobre los datos, o dicho de otra manera, qué consultas va a realizar sobre los datos. Debería de ser capaz de decidir cuales son las preguntas más habituales sobre esos datos o las que más frecuentemente le piden sus alumnos. Dado que son asignaturas diferentes y su método de evaluación no es exactamente el mismo, las preguntas que se puede llegar a realizar también son diferentes.
+
+A continuación se recogen algunas de las preguntas que podría hacer el profesor:
+\begin{itemize}
+	\item \textbf{¿Cuál es la nota que tiene un alumno en cada uno de los ejercicios de mate/fisica?} Es habitual preguntar por la nota en uno de los ejercicios o en el conjunto de los mismos a lo largo de la evaluación.
+	\item \textbf{¿Cuál es la nota de un alumno en los exámenes parciales de mate/física?} Al igual que sucede con los ejercicios, es interesante conocer las notas de los exámenes parciales.
+	\item \textbf{¿Se debe de presentar un alumno al examen final de mate?} O dicho de otra manera, ¿ha aprobado la evaluación continua?
+	\item \textbf{¿Qué nota debe de sacar un alumno en los exámenes de física para aprobar la asignatura?} O preguntado de otra manera, ¿Qué nota ponderada tiene en los ejercicios de evaluación continua?
+	\item \textbf{¿Ha aprobado un alumno la asignatura de física?} De esta manera se sabe si un alumno ha de presentarse a la segunda convocatoria de física o no.
+\end{itemize}
+
+\subsection{Definición del DSL}
+
+Como se ha comentado en el Capítulo \ref{cha:AnalysisAndDesign} hay que definir mediante el uso del DSL de SheetChat el origen de los datos y los intents para cada una de las consultas que se quiera extraer de la hoja de cálculo previamente definidas en el Apartado \ref{sec:queriesNotas}.
+
+Si observamos la Figura \ref{fig:DSLNotas} podemos observar cómo es la definición de las hojas de cálculo a consultar. De igual manera se define una descripción para el chatbot y un mensaje de bienvenida que nos ayude a recordar alguna de las funcionalidades del bot. Posteriormente se muestra un intent de los que deberá de definir el profesor que vaya a utilizar el chatbot.
+
+El intent a resolver es el de obtener la nota de los ejercicios de mate de un determinado alumno. El origen de datos por tanto será la hoja de NotasMate. Se define que las columnas que el bot debe de responder son las de los ejercicios. También se define que sólo se desea un resultado, ya que sólo preguntamos por un alumno concreto. Esta característica es útil para mostrar un número determinado de resultados. En este caso cada alumno se identifica inequívocamente por el nombre y apellido. También se indica que se muestre el nombre de la columna (en este caso el nombre del ejercicio).
+
+Dentro del intent también se definen las entidades de filtrado. En este caso se define la columna Alumno. El tipo de filtrado utilizado es LIKE, que tiene la misma funcionalidad que el like de SQL. Esto permite no tener que introducir nombre y apellido del alumno, si no introducir parcialmente su nombre a la hora de filtrar. En lugar de exigir al usuario escribir Adrian Arana, podrá preguntar por las notas de Adrian o de Arana. Por último se definen mensajes que permitan al usuario preguntar de una manera más amigable (o humana, ver Apartado \ref{sec:Humanization}) por las entidades que hacen falta.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/DSLNotas.png}
+	\caption{DSL con la definición de las Sheet y un intent a utilizar en el ejemplo de notas.} %TODO Corregir caption
+	\label{fig:DSLNotas}
+\end{figure}
+
+Algunas preguntas son más difíciles de formular debido a la naturaleza de los datos. Sin embargo, SheetChat ofrece algunos mecanismos que permiten resolver funciones matemáticas a la hora de realizar consultas sobre los datos. Se puede observar en la pregunta relacionada con obtener la nota ponderada. La nota ponderada de los ejercicios de Física el profesor lo tiene definido de una manera determinada. Esto no es una columna como tal dentro de la hoja de cálculo, si no que es una entidad derivada. En la Figura \ref{fig:DSLNotasPonderada} se observa que dentro del response hay una expresión matemática que define qué es la nota ponderada de los ejercicios. De igual manera, en las respuestas se puede proporcionar un mensaje personalizado para mejorar la humanización del bot ofreciendo una respuesta más sencilla de interpretar por un humano.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/DSLNotasPonderada.png}
+	\caption{Definición de la pregunta para obtener la nota ponderada de los ejercicios de física del ejemplo de notas.}
+	\label{fig:DSLNotasPonderada}
+\end{figure}
+
+\subsection{Ejemplo de uso del chatbot}
+
+A continuación observaremos cómo sería un ejemplo de interacción entre un ser humano y el bot que se ha generado a partir del DSL de SheetChat en el ejemplo de las notas. En la Figura \ref{fig:EjecucionNotas1} se puede observar un intercambio de mensajes para obtener información respecto al alumno Alberto. En primer lugar se ha saludado al chatbot para que este proporcione su mensaje de bienvenida. Esta interacción no es necesaria si se conocen cuales son las características del chatbot. Posteriormente se le han preguntado por los resultados de alberto en matemática: si habia aprobado la evaluación continua y las notas que ha obtenido para conocer la causa de su suspenso. De igual manera se han realizado dos preguntas respecto a las notas de física.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/ejecucionNotas1.png}
+	\caption{Interacciones del usuario a la hora de consultar las notas de Alberto.}
+	\label{fig:EjecucionNotas1}
+\end{figure}
+
+En este caso el chatbot ha inferido cuales eran los intents del usuario y a su vez la entidad necesaria para cada una de ellas, en este caso el nombre del alumno. Si se obtienen de la frase de manera adecuada los intents y las entidades el chatbot proporciona la respuesta. En caso de que se haya inferido el intent pero no las entidades, preguntará por ellas (ofreciendo sugerencias que ayuden al usuario). Esto sucede en la Figura \ref{fig:EjecucionNotas2} dado que no se le había proporcionado ningún nombre a la hora de preguntar por la media en los ejercicios de física. De igual manera, si se le proporciona un nombre no existente, el chatbot le seguirá ofreciendo sugerencias.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/ejecucionNotas2.png}
+	\caption{El chatbot recomienda algunos nombres en caso de que no se defina o se defina un nombre inexistente para hacer el filtrado en la hoja de cálculo.}
+	\label{fig:EjecucionNotas2}
+\end{figure}
+
+\section{Ejemplo 2: Calendario de sesiones en un congreso científico}
+
+Los congresos científicos aúnan conocimiento de distinta índole. Habitualmente estos eventos disponen de un calendario complejo, dónde hay trabajos más o menos interesantes o relevantes con la rama de especialización que tiene el asistente. Es por ello que acudir a las sesiones más afines a tu trabajo es importante. Es interesante disponer de información in situ de cuales son las próximas charlas que habrá, dónde o quién las presenta. Sin embargo, los sitios webs rara vez están preparados para su navegación por el móvil o se pierde mucho tiempo en encontrar los eventos a los que se desea acudir. Es una información relevante y que se desea conocer en el momento.
+
+Este ejemplo se centra en ofrecer una alternativa en forma de bot mediante una hoja de cálculo creada a partir del horario de la conferencia WISE 2015 \footnote{Programa del WISE 2015 (Web Information System Engineering) \url{http://www4.cis.fiu.edu/wise2015/@schema.html}}.
+
+\subsection{Hoja de cálculo con los datos}
+
+Como se ha mencionado previamente la hoja de cálculo es creada a partir de una tabla con el programa disponible en el sitio web. En la Figura \ref{fig:SheetConference} se puede observar el calendario de las diferentes sesiones que están presentes en el congreso. Cada sesión tiene asociada un día y un slot (una franja horaria) donde se exponen trabajos. En algunos de los slots se produce un solapamiento de múltiples sesiones, por lo que es interesante que el usuario conozca cuales son las charlas para elegir la más interesante.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/sheetConference.png}
+	\caption{Hoja de cálculo con el programa del WISE 2015.}
+	\label{fig:SheetConference}
+\end{figure}
+
+\subsection{Análisis de preguntas}
+
+Como se ha comentado previamente, el usuario del bot tiene como objetivo poder conocer el programa del congreso durante la estancia en él. Algunas de las preguntas que le pueden surgir durante el evento están recogidas a continuación:
+\begin{itemize}
+	\item \textbf{¿Cuáles son las charlas en un horario concreto, es decir, qué eventos hay en esa franja horaria?} De los eventos que existan en esa franja horaria, el asistente al congreso podría decantarse por la que más interesante le resulte.
+	\item \textbf{¿Qué eventos hay relacionados con un tema (o topic) en particular?} De esta manera el usuario sabrá con una simple pregunta en qué horarios están programadas charlas interesantes para él.
+	\item \textbf{¿Quiero conocer en qué sesiones participa una persona como chairman?} Los investigadores conocen el trabajo de algunas personas y puede interesarle saber si estas personas participan como expertas en la materia de una determinada sesión.
+\end{itemize}
+
+\subsection{Definicion del DSL}
+
+El diseño del chatbot en este ejemplo constará de una única hoja de cálculo y de dos intents. A pesar de que previamente se han definido 3 cuestiones, sólo hace falta definir dos intents debido a que la obtención de las sesiones relacionadas con un tema en concreto o presidido por un chairman concreto se pueden unir en una. Esto es debido a la naturaleza de los datos. Una columna sesión tiene como valor un string que incluye ambas informaciones. A la hora de realizar el filtrado, se filtra por valor de la columna que se desee. Visto en un ejemplo, observando la sesión 1 del domingo en el slot 10:30-12:00, es lo mismo filtrar por el topic \emph{Hardware Accelerators for the Web} por la habitación \emph{Paris} o el chairman \emph{Iyengar}, se obtendrá como resultado el dia y slot de esa sesión.
+
+Por otro lado, en este ejemplo, surge la novedad de filtrar por más de una columna. En la Figura \ref{fig:DSLConference} se observa remarcado en color azul el entity definido. En este caso se han definido cuatro columnas que actuarán como filtro. A la hora de preguntar por el topic o chairman, el chatbot buscará si se dan positivos en cualquiera de las cuatro columnas. En caso de que el valor introducido por el usuario dé positivo por alguna de las cuatro columnas, se le mostrará el día y la hora (o slot) de ese evento.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/DSLConference.png}
+	\caption{Implementación del chatbot de la conferencia. Cabe destacar remarcado en azul el intent con input multicolumna.}
+	\label{fig:DSLConference}
+\end{figure}
+
+\subsection{Ejemplo de uso del chatbot}
+
+A continuación se presenta un ejemplo de interacción real con el chatbot desarrollado para el programa de las conferencias. Para la obtención de las sesiones en una franja horaria concreta, tal y como se ha mencionado en la implementación del chatbot, se requiere de dos parámetros (el día y el slot). En la Figura \ref{fig:EjecucionConference} el Chatbot guía al usuario mediante preguntas para obtener la información suficiente de a qué slot se refiere el usuario. En este caso realiza una pregunta respecto a los días y otra respecto al slot. Si el usuario hubiese añadido esa información a la hora de hacer la pregunta, el chatbot podría haber inferido estas entidades y ahorrarse los pasos de preguntarlo. Esto es lo que sucede en la pregunta de la imagen derecha, donde el usuario ha proporcionado un criterio de búsqueda.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/EjecucionConferencia.png}
+	\caption{Interacción del usuario a la hora de preguntar por los eventos en una hora concreta (Imagen izquierda y central) y consulta respecto a un topic concreto (Imagen derecha).}
+	\label{fig:EjecucionConference}
+\end{figure}
+
+
+\section{Ejemplo 3: Búsqueda de restaurantes de Tripadvisor}
+
