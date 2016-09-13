@@ -12,22 +12,22 @@ Para el primer ejemplo la audiencia objetivo es un profesor de instituto que dis
 
 \subsection{Hoja de cálculo con los datos}
 
-Para el almacenamiento de las notas de sus alumnos dispone de dos hojas de cálculo, una con las notas de Matemática (ver Figura \ref{fig:sheetnotasMate}) y otra para las calificaciones de la asignatura de Física (ver Figura \ref{fig:sheetNotasFisica}).
+Para el almacenamiento de las notas de sus alumnos dispone de dos hojas de cálculo, una con las notas de Matemática (ver Figura \ref{fig:SheetNotasMate}) y otra para las calificaciones de la asignatura de Física (ver Figura \ref{fig:SheetNotasFisica}).
 
-Tal y como se puede observar en la Figura \ref{fig:sheetNotasMate} el profesor tiene las notas de cada uno de sus alumnos que va rellenando a medida que se les evalúa de los diferentes aspectos de las asignaturas. Por lo tanto, cada fila representa a un alumno y cada columna a cada concepto a evaluar de la asignatura.
+Tal y como se puede observar en la Figura \ref{fig:SheetNotasMate} el profesor tiene las notas de cada uno de sus alumnos que va rellenando a medida que se les evalúa de los diferentes aspectos de las asignaturas. Por lo tanto, cada fila representa a un alumno y cada columna a cada concepto a evaluar de la asignatura.
 
-En el método de evaluación empleado por el profesorado se tiene en cuenta trabajos de clase o ejercicios y exámenes durante la evaluación continua. En caso de que la media ponderada de estos parciales supere un 5 el alumno habrá aprobado mediante la evaluación continua. En caso contrario, tendrá que presentarse a un examen final con todo el temario del curso. A modo de ejemplo se puede visualizar en la Figura \ref{fig:sheetNotasMate} como el alumno Adrian Arana ha aprobado la evaluación continua con un 5.9 mientras que Alberto Ballester tuvo que presentarse al examen final para aprobar dado que en la evaluación continua su nota era de 3.85.
+En el método de evaluación empleado por el profesorado se tiene en cuenta trabajos de clase o ejercicios y exámenes durante la evaluación continua. En caso de que la media ponderada de estos parciales supere un 5 el alumno habrá aprobado mediante la evaluación continua. En caso contrario, tendrá que presentarse a un examen final con todo el temario del curso. A modo de ejemplo se puede visualizar en la Figura \ref{fig:SheetNotasMate} como el alumno Adrian Arana ha aprobado la evaluación continua con un 5.9 mientras que Alberto Ballester tuvo que presentarse al examen final para aprobar dado que en la evaluación continua su nota era de 3.85.
 
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./figs/sheetNotasMate.png}
-	\caption{Hoja de cálculo del profesor para la asignatura de matemática.} \label{fig:sheetNotasMate}
+	\caption{Hoja de cálculo del profesor para la asignatura de matemática.} \label{fig:SheetNotasMate}
 \end{figure}
 
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./figs/sheetNotasFisica.png}
-	\caption{Hoja de cálculo del profesor para la asignatura de física.} \label{fig:sheetNotasFisica}
+	\caption{Hoja de cálculo del profesor para la asignatura de física.} \label{fig:SheetNotasFisica}
 \end{figure}
 
 \subsection{Análisis de preguntas}
@@ -48,9 +48,9 @@ A continuación se recogen algunas de las preguntas que podría hacer el profeso
 
 Como se ha comentado en el Capítulo \ref{cha:AnalysisAndDesign} hay que definir mediante el uso del DSL de SheetChat el origen de los datos y los intents para cada una de las consultas que se quiera extraer de la hoja de cálculo previamente definidas en el Apartado \ref{sec:queriesNotas}.
 
-Si observamos la Figura \ref{fig:DSLNotas} podemos observar cómo es la definición de las hojas de cálculo a consultar. De igual manera se define una descripción para el chatbot y un mensaje de bienvenida que nos ayude a recordar alguna de las funcionalidades del bot. Posteriormente se muestra un intent de los que deberá de definir el profesor que vaya a utilizar el chatbot.
+Si se observa la Figura \ref{fig:DSLNotas} se puede observar cómo es la definición de las hojas de cálculo a consultar. De igual manera se define una descripción para el chatbot y un mensaje de bienvenida que nos ayude a recordar alguna de las funcionalidades del bot. Posteriormente se muestra un intent de los que deberá de definir el profesor que vaya a utilizar el chatbot.
 
-El intent a resolver es el de obtener la nota de los ejercicios de mate de un determinado alumno. El origen de datos por tanto será la hoja de NotasMate. Se define que las columnas que el bot debe de responder son las de los ejercicios. También se define que sólo se desea un resultado, ya que sólo preguntamos por un alumno concreto. Esta característica es útil para mostrar un número determinado de resultados. En este caso cada alumno se identifica inequívocamente por el nombre y apellido. También se indica que se muestre el nombre de la columna (en este caso el nombre del ejercicio).
+El intent a resolver es el de obtener la nota de los ejercicios de mate de un determinado alumno. El origen de datos por tanto será la hoja de NotasMate. Se define que las columnas que el bot debe de responder son las de los ejercicios. También se define que sólo se desea un resultado, ya que sólo se pregunta por un alumno concreto. Esta característica es útil para mostrar un número determinado de resultados. En este caso cada alumno se identifica inequívocamente por el nombre y apellido. También se indica que se muestre el nombre de la columna (en este caso el nombre del ejercicio).
 
 Dentro del intent también se definen las entidades de filtrado. En este caso se define la columna Alumno. El tipo de filtrado utilizado es LIKE, que tiene la misma funcionalidad que el like de SQL. Esto permite no tener que introducir nombre y apellido del alumno, si no introducir parcialmente su nombre a la hora de filtrar. En lugar de exigir al usuario escribir Adrian Arana, podrá preguntar por las notas de Adrian o de Arana. Por último se definen mensajes que permitan al usuario preguntar de una manera más amigable (o humana, ver Apartado \ref{sec:Humanization}) por las entidades que hacen falta.
 
@@ -72,7 +72,7 @@ Algunas preguntas son más difíciles de formular debido a la naturaleza de los 
 
 \subsection{Ejemplo de uso del chatbot}
 
-A continuación observaremos cómo sería un ejemplo de interacción entre un ser humano y el bot que se ha generado a partir del DSL de SheetChat en el ejemplo de las notas. En la Figura \ref{fig:EjecucionNotas1} se puede observar un intercambio de mensajes para obtener información respecto al alumno Alberto. En primer lugar se ha saludado al chatbot para que este proporcione su mensaje de bienvenida. Esta interacción no es necesaria si se conocen cuales son las características del chatbot. Posteriormente se le han preguntado por los resultados de alberto en matemática: si habia aprobado la evaluación continua y las notas que ha obtenido para conocer la causa de su suspenso. De igual manera se han realizado dos preguntas respecto a las notas de física.
+A continuación se puede visualizar cómo sería un ejemplo de interacción entre un ser humano y el bot que se ha generado a partir del DSL de SheetChat en el ejemplo de las notas. En la Figura \ref{fig:EjecucionNotas1} se puede observar un intercambio de mensajes para obtener información respecto al alumno Alberto. En primer lugar se ha saludado al chatbot para que este proporcione su mensaje de bienvenida. Esta interacción no es necesaria si se conocen cuales son las características del chatbot. Posteriormente se le han preguntado por los resultados de alberto en matemática: si habia aprobado la evaluación continua y las notas que ha obtenido para conocer la causa de su suspenso. De igual manera se han realizado dos preguntas respecto a las notas de física.
 
 \begin{figure}[htb]
 	\centering
@@ -143,3 +143,86 @@ A continuación se presenta un ejemplo de interacción real con el chatbot desar
 
 \section{Ejemplo 3: Búsqueda de restaurantes de Tripadvisor}
 
+En este tercer caso de estudio se muestra además de un nuevo contexto de uso, el uso de un origen de datos web. En la actualidad la mayoría de información se puede recabar en la red, sin embargo esta no suele tener una estructura utilizada en un ámbito general como son las tablas de bases de datos o las hojas de cálculo.
+
+En este ejemplo se mostrará cómo se pueden realizar búsquedas en restaurantes extraídos del sitio web Tripadvisor. Tripadvisor es un sitio web de opinión sobre hoteles, restaurantes, y otros lugares de ocio. En su web se pueden filtrar los resultados en base a localización (como una ciudad o provincia), características del sitio (número de estrellas de un hotel o tipo de comida de un restaurante) y otros muchos aspectos. Concretamente en este ejemplo se ha realizado una búsqueda de restaurantes en Miami (Estados Unidos), que es lo que se puede observar en la Figura \ref{fig:TripadvisorMiami}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/tripadvisorMiami.png}
+	\caption{Búsqueda de restaurantes de Miami en Tripadvisor}
+	\label{fig:TripadvisorMiami}
+\end{figure}
+
+La idea para este ejemplo es demostrar que estos datos en la web pueden ser extraidos a una hoja de cálculo y generar un chatbot mediante la herramienta SheetChat.
+
+\subsection{Hoja de cálculo con los datos}
+
+Como se ha mencionado al comiendo de este caso de estudio, el objetivo es poder representar estos datos en forma de hoja de cálculo. Para ello en la web existen múltiples herramientas de web scraping (extracción de información de la web). A pesar de que la web de tripadvisor muestre los restaurantes en un formato más amigable para el ser humano, si que todos los restaurantes comparten una estructura similar. En la Figura \ref{fig:TripadvisorMiami} se observa que todos los restaurantes tienen un hyperlink con el nombre del restaurante donde pinchando saldría la ficha del restaurante en cuestión. Cada restaurante tiene una imagen asociada, un número de opiniones, dos breves opiniones, el precio promedio del menú del restaurante y el tipo de comida. Precisamente, el encontrar patrones y extraer datos es el objetivo de herramientas como Import.io\footnote{\href{https://www.import.io/}{Import.io} extracción de datos tabulares a partir de sitios web.}.
+
+El funcionamiento de import.io permite extraer una tabla con los resultados de la búsqueda de restaurantes de Miami. En el Anexo \ref{anx:importio} se puede profundizar en el funcionamiento de la herramienta. Para el ejemplo, simplemente la hoja de cálculo que obtenemos es la presentada en la Figura \ref{fig:SheetTripadvisor}. Mediante import.io se han extraido 400 restaurantes en Miami. En la tabla se pueden observar las columnas sobre las que podremos realizar preguntas posteriormente al bot, nombre del restaurante (Name), sitio web con la ficha de Tripadvisor (url), rango de precios de los menús (RangePrice) o tipo de comida (Cuisines).
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/sheetTripadvisor.png}
+	\caption{Hoja de cálculo con restaurantes de Miami extraidos de Tripadvisor.}
+	\label{fig:SheetTripadvisor}
+\end{figure}
+
+\subsection{Análisis de preguntas}
+
+Tras observar los datos extraídos de Tripadvisor, el usuario podría hacer diferentes preguntas. En este caso se ha decidido que pueden ser interesantes las que se presentan a continuación:
+\begin{itemize}
+	\item \textbf{¿Me podrías ayudar a buscar restaurantes con comida italiana?} Al igual que se puede preguntar por italiana, se puede preguntar por cualquier tipo de comida que se haya extraído de los restaurantes situados en Miami.
+	\item \textbf{¿Qué restaurantes vegetarianos hay por menos de 45 dolares?} Similar a la pregunta anterior, con la condición de precio máximo, ya que son dos aspectos que se suelen mirar frecuentemente a la hora de buscar un restaurante, si gusta la comida y el precio.
+	\item \textbf{¿Qué opinión hay sobre un restaurante concreto?} Mediante la opinión de otros usuarios extraída del sitio web, el usuario del Chatbot puede deducir si un restaurante es bueno o no.
+\end{itemize}
+
+\subsection{Definicion del DSL}
+\label{sec:DSLTripadvisor}
+
+Para este ejemplo se trabajará la definición de las interacciones para las dos primeras cuestiones previamente definidas. En la Figura \ref{fig:DSLTripadvisor1} se ve la definición para la primera de las preguntas, dónde la entidad de entrada es la columna \emph{Cuisines} (tipo de cocina) y en la salida se mostrará un mensaje personalizado con el nombre, el tipo de comida, el rango de precio y un link para abrir la ficha en Tripadvisor.
+
+Se ha observado que el resultado que ofrece el chatbot (junto con la previsualización de links de la plataforma Slack) hace que el chatbot al ofrecer la respuesta sea muy verboso. Por esa razón, se ha decidido que se limite a tres el número de respuestas máximas que va a recibir el usuario.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/DSLTripadvisor1.png}
+	\caption{DSL de SheetChat que describe el intent para la búsqueda por tipo de comida de los restaurantes de Tripadvisor.}
+	\label{fig:DSLTripadvisor1}
+\end{figure}
+
+
+De igual manera, en la Figura \ref{fig:DSLTripadvisor2} se muestra la definición utilizando el DSL de SheetChat donde el usuario hará peticiones respecto a un precio máximo y un tipo de comida concretos, es decir, hay dos entidades participantes a la hora de realizar el filtrado entre los 400 restaurantes. Como novedad cabe destacar que el valor del campo Mask en lugar de ser LIKE (que sirve para comparar strings), se utiliza el símbolo < para designar que es un valor númerico y que el filtro rechazará los resultados mayores que el precio máximo delimitado por el usuario a la hora de interaccionar con el Chatbot, tal y cómo se muestra en el Apartado \ref{sec:EjemploUsoTripadvisor}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/DSLTripadvisor2.png}
+	\caption{DSL de SheetChat que describe el intent para la búsqueda por precio máximo (resaltado en azul) y tipo de comida de los restaurantes de Tripadvisor.}
+	\label{fig:DSLTripadvisor2}
+\end{figure}
+
+\subsection{Ejemplo de uso del chatbot}
+\label{sec:EjemploUsoTripadvisor}
+
+Tras el diseño del Chatbot mediante el DSL de SheetChat a continuación se presenta cómo sería la experiencia de uso de este chatbot por parte de un usuario.
+
+En la Figura \ref{fig:EjecucionTripadvisor1} el usuario en primer lugar saluda al Chatbot y este le ofrece alguna de sus funcionalidades por si acaso el usuario no se acuerda de qué trata este chatbot o qué funcionalidades tenía. Posteriormente se dispone a preguntar por restaurantes italianos. El chatbot le responde con tres resultados, el número máximo de resultados que se indicó en el diseño del chatbot (ver Apartado \ref{sec:DSLTripadvisor}).
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/ejecucionTripadvisor1.png}
+	\caption{Interacción entre el usuario y el chatbot que recomienda restaurantes en base a un tipo de cocina.}
+	\label{fig:EjecucionTripadvisor1}
+\end{figure}
+
+En la interacción de la Figura \ref{fig:EjecucionTripadvisor2} se observa que al usuario las recomendaciones de los restaurantes italianos le ha resultado cara. Por lo tanto decide preguntar por restaurantes con precio menor a 15 dolares. El chatbot ha detectado que el usuario está preguntando por restaurantes con un precio máximo y un tipo de cocina determinado. El chatbot restringe las respuestas en base a ese nuevo filtro y muestra el único restaurante que cumple esas características. En caso de que no hubiese ningún restaurante que cumpliese ambos criterios preguntaría por las entidades nuevamente.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/ejecucionTripadvisor2.png}
+	\caption{El bot de Tripadvisor recomienda restaurantes italianos con precio menor a 15 dolares por petición del usuario.}
+	\label{fig:EjecucionTripadvisor2}
+\end{figure}
+
+De esta manera, mediante el uso de un chatbot, el usuario evita tener que aplicar filtros en el sitio web de Tripadvisor que en una configuración móvil suele resultar en lineas generales bastante farragoso.
