@@ -1,11 +1,11 @@
 \chapter{Casos de estudio}
 \label{cha:CaseStudies}
 
-El diagrama de características estudiado previamente se ha de resolver en la definición de un chatbot. En este apartado se estudiará demostrará el funcionamiento del DSL definido para la creación de un SheetChat. Para ello se tienen que tener en cuenta todas las características previamente mencionadas, la definición del origen de datos, la creación de una conversación que nos proporcione una petición de datos de entrada y su salida asociada; y no menos importante, los recursos que nos permitan humanizar el bot para ofrecer una experiencia de usuario agradable.
+En este apartado se evaluará el funcionamiento del DSL definido para la creación de un SheetChat. Para ello se tienen que tener en cuenta todas las características previamente mencionadas, la definición del origen de datos, la creación de una conversación que nos proporcione una petición de datos de entrada y su salida asociada; y no menos importante, los recursos que nos permitan humanizar el bot para ofrecer una experiencia de usuario agradable.
 
-Para ello en este trabajo se han elaborado tres ejemplos. El primero de ellos es dado las notas de dos asignaturas impartidas por un profesor de primaria, el poder preguntar por las notas de los alumnos que tiene. El segundo de los ejemplos permite dado un calendario de sesiones de un congreso científico, en este caso extraido del WISE de 2015\footnote{Calendario con las diferentes sesiones del congreso WISE: \url{http://www4.cis.fiu.edu/wise2015/@schema.html}}, poder obtener información sobre qué sesiones hay en los diferentes slots (u horarios). Por último, el tercer ejemplo permite, dada una hoja de cálculo autogenerada de una búsqueda de restaurantes de Miami en el sitio web Tripadvisor, obtener restaurantes por tipo de comida.
+Para ello se han elaborado tres ejemplos. El primero de ellos es dado las notas de dos asignaturas impartidas por un profesor, el poder preguntar por las notas de los alumnos. El segundo de los ejemplos permite dado un calendario de sesiones de un congreso científico, en este caso extraido del WISE de 2015\footnote{Calendario con las diferentes sesiones del congreso WISE: \url{http://www4.cis.fiu.edu/wise2015/@schema.html}}, poder obtener información sobre qué sesiones hay en los diferentes slots (u horarios). Por último, el tercer ejemplo permite, dada una hoja de cálculo autogenerada de una búsqueda de restaurantes de Miami en el sitio web Tripadvisor, obtener restaurantes por tipo de comida.
 
-Los tres casos de estudio tendrán la misma estructura. En primer lugar se abordará el problema que el usuario tiene. En segundo lugar se realizará un análisis de las preguntas o cuestiones que tendrá que ser capaz de resolver el chatbot. Posteriormente se hará hincapié en la definición del DSL que tendrá que hacer el usuario para resolver su problemática. Finalmente se mostrará un ejemplo de interacción entre el chatbot generado y el usuario.
+Los tres casos de estudio tendrán la misma estructura. En primer lugar se abordará el problema que el usuario tiene. En segundo lugar se realizará un análisis de las preguntas o cuestiones que tendrá que ser capaz de resolver el chatbot. Posteriormente se hará hincapié en la definición del DSL que tendrá que hacer el usuario. Finalmente se mostrará un ejemplo de interacción entre el chatbot generado y el usuario.
 
 \section{Ejemplo 1: Notas de asignaturas impartidas por un profesor}
 
@@ -57,8 +57,8 @@ Dentro del intent también se definen las entidades de filtrado. En este caso se
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.8\textwidth]{./figs/DSLNotas.png}
-	\caption{DSL con la definición de las Sheet y un intent a utilizar en el ejemplo de notas.} %TODO Corregir caption
+	\includegraphics[width=1.2\textwidth]{./figs/DSLNotas.png}
+	\caption{DSL con la definición de las Sheet y un intent a utilizar en el ejemplo de notas.}
 	\label{fig:DSLNotas}
 \end{figure}
 
@@ -93,7 +93,7 @@ En este caso el chatbot ha inferido cuales eran los intents del usuario y a su v
 
 \section{Ejemplo 2: Calendario de sesiones en un congreso científico}
 
-Los congresos científicos aúnan conocimiento de distinta índole. Habitualmente estos eventos disponen de un calendario complejo, dónde hay trabajos más o menos interesantes o relevantes con la rama de especialización que tiene el asistente. Es por ello que acudir a las sesiones más afines a tu trabajo es importante. Es interesante disponer de información in situ de cuales son las próximas charlas que habrá, dónde o quién las presenta. Sin embargo, los sitios webs rara vez están preparados para su navegación por el móvil o se pierde mucho tiempo en encontrar los eventos a los que se desea acudir. Es una información relevante y que se desea conocer en el momento.
+Los congresos disponen de un calendario complejo, dónde hay trabajos más o menos interesantes o relevantes con la rama de especialización que tiene el asistente. Es por ello que acudir a las sesiones más afines a tu trabajo es importante. Es interesante disponer de información in situ de cuales son las próximas charlas que habrá, dónde o quién las presenta. Sin embargo, los sitios webs rara vez están preparados para su navegación por el móvil o se pierde mucho tiempo en encontrar los eventos a los que se desea acudir. Es una información relevante y que se desea conocer en el momento.
 
 Este ejemplo se centra en ofrecer una alternativa en forma de bot mediante una hoja de cálculo creada a partir del horario de la conferencia WISE 2015 \footnote{Programa del WISE 2015 (Web Information System Engineering) \url{http://www4.cis.fiu.edu/wise2015/@schema.html}}.
 
@@ -114,7 +114,7 @@ Como se ha comentado previamente, el usuario del bot tiene como objetivo poder c
 \begin{itemize}
 	\item \textbf{¿Cuáles son las charlas en un horario concreto, es decir, qué eventos hay en esa franja horaria?} De los eventos que existan en esa franja horaria, el asistente al congreso podría decantarse por la que más interesante le resulte.
 	\item \textbf{¿Qué eventos hay relacionados con un tema (o topic) en particular?} De esta manera el usuario sabrá con una simple pregunta en qué horarios están programadas charlas interesantes para él.
-	\item \textbf{¿Quiero conocer en qué sesiones participa una persona como chairman?} Los investigadores conocen el trabajo de algunas personas y puede interesarle saber si estas personas participan como expertas en la materia de una determinada sesión.
+	\item \textbf{¿Quiero conocer en qué sesiones participa una persona?} Los investigadores conocen el trabajo de algunas personas y puede interesarle saber si estas personas participan como expertas en la materia de una determinada sesión.
 \end{itemize}
 
 \subsection{Definicion del DSL}

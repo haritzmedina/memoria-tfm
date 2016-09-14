@@ -5,7 +5,14 @@ En este capítulo se abordará los aspectos de implementación de SheetChat, que
 
 Para abordar los aspectos de implementación, el capítulo se dividirá en tres secciones o apartados principales. En el Apartado \ref{sec:Botkit} se presentará la plataforma de desarrollo de bots utilizada, Botkit, desarrollada en Javascript. En el Apartado \ref{sec:ImplementationLanguage} se hablará del lenguaje de programación utilizado y del ecosistema utilizado. Por último, en el Apartado \ref{sec:AlaSQL} se hablará del motor SQL utilizado para permitir al DSL el uso de consultas enriquecidas con funciones matemáticas que se ha comentado en el Apartado \ref{sec:Queries}.
 
-De igual manera se han utilizado otros servicios web para que forman parte del funcionamiento de SheetChat, pero de los que no se hablará en este capítulo. Estos son Wit.ai\footnote{Sitio web de Wit.ai: \url{https://wit.ai}} y la API de Google Spreadsheets\footnote{Sitio web de la documentación de la API de Google SpreadSheet: \url{https://developers.google.com/sheets/}}. Wit.ai se utiliza en la desambiguación de intents y reconocimiento de entidades, explicado en el Apartado \ref{sec:Chat}. Sobre Wit.ai se puede profundizar en el Anexo \ref{anx:witai}. La API de Google Spreadsheets permite la obtención de los datos de forma matricial de la hoja de cálculo alojada en Google Docs.
+Como se puede observar en la Figura \ref{fig:UMLComponents}, se han utilizado otros servicios web para que forman parte del funcionamiento de SheetChat, pero de los que no se hablará en este capítulo. Estos son Wit.ai\footnote{Sitio web de Wit.ai: \url{https://wit.ai}} y la API de Google Spreadsheets\footnote{Sitio web de la documentación de la API de Google SpreadSheet: \url{https://developers.google.com/sheets/}}. Wit.ai se utiliza en la desambiguación de intents y reconocimiento de entidades, explicado en el Apartado \ref{sec:Chat}. Sobre Wit.ai se puede profundizar en el Anexo \ref{anx:witai}. La API de Google Spreadsheets permite la obtención de los datos de forma matricial de la hoja de cálculo alojada en Google Docs.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/UMLComponents.png}
+	\caption{Diagrama de componentes UML de SheetChat.}
+	\label{fig:BotkitConversation}
+\end{figure}
 
 Cabe destacar que el código fuente y los ejemplos del Capítulo \ref{cha:CaseStudies} están accesibles en el siguiente repositorio de Github: \url{https://github.com/haritzmedina/Sheetbot}.
 
