@@ -1,0 +1,17 @@
+\chapter{Implementación}
+\label{cha:Implementation}
+
+En este capítulo se abordará los aspectos de implementación de SheetChat. Para ello se dividirá en tres secciones claramente diferenciadas. En el Apartado \ref{sec:Botkit} se presentará la plataforma de desarrollo de bots utilizada, Botkit, desarrollada en Javascript. En el Apartado \ref{sec:ImplementationLanguage} se hablará del lenguaje de programación utilizado y del ecosistema utilizado.
+
+
+\section{Botkit}
+\label{sec:Botkit}
+
+
+\section{Lenguaje de implementación}
+\label{sec:ImplementationLanguage}
+
+
+
+\section{Motor SQL para consultas. AlaSQL}
+\label{sec:AlaSQL}

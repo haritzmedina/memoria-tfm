@@ -1,24 +1,24 @@
-\chapter{Introducción a los chatbots}
+\chapter{Introducción a los Chatbots}
 
-En este capítulo se tratará de abordar uno de los conceptos fundamentales en los que se basa el trabajo realizado. No es otro que los chatbots. En el Apartado \ref{sec:DefinicionChatbot} se tratará de describir qué es un chatbot y en qué contextos se utiliza. En el Apartado \ref{sec:PlataformasChatbot} se explicará las actuales plataformas para el desarrollo de chatbots, sus características y la solución que se ha adoptado en este trabajo.
+En este capítulo se tratará de abordar uno de los conceptos fundamentales en los que se basa el trabajo realizado. No es otro que los Chatbots. En el Apartado \ref{sec:DefinicionChatbot} se tratará de describir qué es un Chatbot y en qué contextos se utiliza. En el Apartado \ref{sec:PlataformasChatbot} se explicará las actuales plataformas para el desarrollo de Chatbots, sus características y la solución que se ha adoptado en este trabajo.
 
 \section{Definición y contexto de uso}
 \label{sec:DefinicionChatbot}
 
-Existen múltiples definiciones para describir qué es un chatbot, agente conversacional, o simplemente bot. Un chatbot se puede describir como un software para automatizar infinidad de tareas que actualmente desarrollan los usuarios por si mismos, como reservar un restaurante para cenar, añadir un evento al calendario u obtener información \cite{Wagner2016}. También se les describe como software con características de inteligencia artificial que pueden hacer cualquier cosa, enseñar, jugar, buscar, recordar, conectar, integrar con otros servicios,... \footnote{¿Qué es un chatbot de telegram? \url{https://telegram.org/blog/bot-revolution}}.
+Existen múltiples definiciones para describir qué es un Chatbot, agente conversacional, o simplemente bot. Un chatbot se puede describir como un software para automatizar infinidad de tareas que actualmente desarrollan los usuarios por si mismos, como reservar un restaurante para cenar, añadir un evento al calendario u obtener información \cite{Wagner2016}. También se les describe como software con características de inteligencia artificial que pueden hacer cualquier cosa, enseñar, jugar, buscar, recordar, conectar, integrar con otros servicios,... \footnote{¿Qué es un chatbot de telegram? \url{https://telegram.org/blog/bot-revolution}}.
 
 Un concepto que habitualmente se confunde o se solapa (en cierta medida) con los chatbots son los asistentes personales o asistentes digitales. Ambas ideas comparten algunas características que se presentan a continuación:
 \begin{itemize}
 	\item Tanto los chatbots como los asistentes personales disponen (o pueden disponer) de interfaz textual o por voz.
-	\item Ambas ideas tienen como objetivo automatizar tareas cotidianas.
-	\item Son capaces de integrar múltiples servicios.
+	\item Ambas ideas tienen como objetivo automatizar tareas cotidianas
+	\item Son capaces de integrar múltiples servicios
 \end{itemize}
 
 Sin embargo, presentan una diferencia principal. Un chatbot está orientado a resolver ciertos problemas, digamos que es experto en un ámbito concreto, puede actuar como representante de una empresa o un servicio. Mientras tanto un asistente personal juega el papel de oráculo y tiene que lidiar con cualquier tipo de tarea \cite{Wright2016}.
 
 Lo que las definiciones dejan claro es que un bot conversacional tiene un propósito especifico y que en lineas generales es un software que debe de lidiar con o resolver tareas cotidianas del usuario.
 
-Sin embargo, lo mejor para conocer el contexto, el tipo de respuestas que proporciona, las características o ``habilidades'' de las que dispone un agente conversacional es ver un ejemplo. En la Figura \ref{fig:Politibot} se puede observar la interacción que tiene un usuario con un chatbot llamado Politibot. Politibot\footnote{Sitio web de @politibot: \url{https://politibot.es/}} es un agente conversacional que permite ofrecer información acerca de las elecciones generales de España. En la imagen izquierda Figura \ref{fig:Politibot} se puede ver cómo el bot recaba cierta información del usuario (rango de edad, localización) para de esta manera ofrecer información más relevante para el elector. En la imagen derecha, el usuario pregunta por los resultados de las elecciones, a lo que el chatbot proporciona una respuesta personalizada, mostrando los datos de las elecciones generales, pero también los de su provincia.
+Sin embargo, lo mejor para conocer el contexto, el tipo de respuestas que proporciona, las características o "habilidades" de las que dispone un agente conversacional es ver un ejemplo. En la Figura \ref{fig:Politibot} se puede observar la interacción que tiene un usuario con un Chatbot llamado Politibot. Politibot\footnote{Sitio web de @politibot: \url{https://politibot.es/}} es un agente conversacional que permite ofrecer información acerca de las elecciones generales de España. En la imagen izquierda Figura \ref{fig:Politibot} se puede ver cómo el bot recaba cierta información del usuario (rango de edad, localización) para de esta manera ofrecer información más relevante para el elector. En la imagen derecha, el usuario pregunta por los resultados de las elecciones, a lo que el chatbot proporciona una respuesta personalizada, mostrando los datos de las elecciones generales, pero también los de su provincia.
 
 Detrás de un chatbot de estas características se aúnan diferentes servicios: bases de datos con las preferencias de los usuarios, sistemas de localización o datos extraídos de servicios web para las noticias o los resultados.
 
@@ -42,7 +42,7 @@ Como se ha mencionado en el apartado anterior, los chatbot existen desde hace va
 
 Hay que diferenciar dos aspectos a la hora de hablar de plataformas para los chatbots. Por un lado existen las plataformas donde tiene el chatbot su interfaz, es decir, en qué aplicación o servicio mediante el cual chatea el usuario con el bot, que será en la que se centra este apartado. Por otro lado está la plataforma de desarrollo de los bots, que es la librería o servicio que se utiliza para desarrollar un chatbot que después será desplegado en una o más plataformas.
 
-En referencia a la interfaz de los chatbots, en la actualidad muchas empresas ofrecen su plataforma como interfaz para interactuar con los chatbots. Entre ellas destacan: Facebook, Twitter, Telegram, Microsoft Skype o Slack. Sin embargo, empresas como Kik llevan trabajando años en el area de los chatbots \footnote{¿Como predijo Kik el crecimiento del uso de los chatbots? \url{https://backchannel.com/how-kik-predicted-the-rise-of-chat-bots-2eaf9027b86e}}.
+En referencia a la interfaz de los chatbots, en la actualidad muchas empresas ofrecen su plataforma como interfaz para interactuar con los chatbots. Entre ellas destacan: Facebook, Twitter, Telegram, Microsoft Skype o Slack. Sin embargo, empresas como Kik llevan trabajando años en el area de los Chatbots \footnote{¿Como predijo Kik el crecimiento del uso de los chatbots? \url{https://backchannel.com/how-kik-predicted-the-rise-of-chat-bots-2eaf9027b86e}}.
 
 La plataforma de desarrollo están muy ligada a la interfaz. Volviendo al ejemplo de politibot, en la Figura \ref{fig:PolitibotBotones} se observa como la interfaz de Telegram proporciona botones con las diferentes opciones que el usuario puede elegir para interactuar con el bot. Esta característica es particular de Telegram, que por ejemplo Slack no dispone. Sin embargo, otras plataformas ofrecen otras características que Telegram no contempla.
 \begin{figure}[htb]
@@ -58,7 +58,7 @@ En este trabajo, se ha decidido trabajar con la librería Botkit \footnote{Sitio
 \begin{itemize}
 	\item Es multiplataforma, actualmente soporta Slack, Facebook Messenger\footnote{Sitio web de Facebook Messenger:\url{https://facebook.com/}} y Twilio IP Messaging\footnote{Sitio web de Twilio: \url{https://www.twilio.com/docs/api/ip-messaging}}.
 	\item Es software libre, lo que permite ver el código fuente y modificarlo, además de que no tiene ningún coste económico.
-	\item Es sencillo de desarrollar, permite abstraer bastante la implementación a bajo nivel de los chatbots, que es compleja debido a las llamadas asíncronas y las conexiones a múltiples servicios que trabaja por debajo.
+	\item Es sencillo de desarrollar, permite abstraer bastante la implementación a bajo nivel de los Chatbots, que es compleja debido a las llamadas asíncronas y las conexiones a múltiples servicios que trabaja por debajo.
 \end{itemize}
 
 Para profundizar en las características de implementación sobre Botkit es conveniente revisar el Capítulo \ref{cha:Implementation}.
