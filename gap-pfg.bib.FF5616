@@ -1,0 +1,108 @@
+@article{Montag2015,
+	abstract = {BACKGROUND: Mounting evidence shows that smartphone usage heavily disrupts our work life and social activities. Moreover, it is possible that overuse could resemble addictive tendencies. A key contributing factor to smartphone overuse seems to be usage of the messaging application WhatsApp. Although WhatsApp is one of the most commonly used communication applications on smartphones, research in this area is scarce. Given the huge societal debate on the impact of smartphone usage on our daily lives, the present study undertook a large-scale investigation in order to provide numbers on smartphone usage generally-and use of WhatsApp in particular, with the aim of providing a basis for a scientific debate.$\backslash$n$\backslash$nMETHODS: In a large sample of N = 2,418 users, we recorded WhatsApp behaviour over a 4 week period.$\backslash$n$\backslash$nRESULTS: Our data show that use of WhatsApp accounted for 19.83{\%} (= 32.11 min) of all smartphone behaviour (compare: Facebook only 9.38{\%} = 15.19 min). The mean of general daily smartphone usage was 161.95 min. Females used WhatsApp for significantly longer periods of time than males and younger age was associated with longer duration of WhatsApp use. While the personality trait Extraversion was positively associated with daily WhatsApp use, Conscientiousness showed an inverse correlation with the length of daily WhatsApp use.$\backslash$n$\backslash$nCONCLUSIONS: The numbers on smartphone usage in the present study show that the smartphone dominates our daily life. In particular WhatsApp is a driving force, here. Given the length of daily smartphone and WhatsApp usage, more studies need to be conducted to better understand smartphone usage.},
+	author = {Montag, Christian and B{\l}aszkiewicz, Konrad and Sariyska, Rayna and Lachmann, Bernd and Andone, Ionut and Trendafilov, Boris and Eibes, Mark and Markowetz, Alexander},
+	doi = {10.1186/s13104-015-1280-z},
+	file = {:E$\backslash$:/Haritz/Dropbox/Books/Papers/Montag et al. - 2015 - Smartphone usage in the 21st century who is active on WhatsApp.pdf:pdf},
+	issn = {1756-0500},
+	journal = {BMC research notes},
+	keywords = {age,conscientiousness,education,extraversion,gender,personality,whatsapp},
+	pages = {331},
+	pmid = {26238512},
+	publisher = {BioMed Central},
+	title = {{Smartphone usage in the 21st century: who is active on WhatsApp?}},
+	url = {http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=4522968{\&}tool=pmcentrez{\&}rendertype=abstract},
+	volume = {8},
+	year = {2015}
+}
+
+@article{Wang2016,
+	abstract = {The smartphone penetrates many facets of everyday life, including travel. As such, this article argues that since travel can be considered a special stage of technology use, understanding how the smartphone shapes the tourist experience cannot be separated from the way it is used in one's everyday life. On the basis of a study of American travelers, this study uses adaptive structuration theory as a lens to identify a number of spillover effects from smartphone use in everyday life into travel. The results of this study offer several important implications for both research and practice as well as future directions for the study of mobile technology in tourism. Keywords},
+	author = {Wang, Dan and Xiang, Zheng and Fesenmaier, Daniel R.},
+	doi = {10.1177/0047287514535847},
+	file = {:E$\backslash$:/Haritz/Dropbox/Books/Papers/Wang, Xiang, Fesenmaier - 2016 - Smartphone Use in Everyday Life and Travel.pdf:pdf},
+	isbn = {0047-2875},
+	issn = {0047-2875},
+	journal = {Journal of Travel Research},
+	keywords = {adaptive structuration theory,mobile technology,smartphone,tourist experience},
+	mendeley-groups = {Smartphone usage},
+	number = {1},
+	pages = {52--63},
+	title = {{Smartphone Use in Everyday Life and Travel}},
+	url = {http://jtr.sagepub.com/cgi/doi/10.1177/0047287514535847},
+	volume = {55},
+	year = {2016}
+}
+
+
+@misc{Philips2014,
+	author   = {Philips, Gavin},
+	title     = {Excel Vs. Access – Can A Spreadsheet Replace A Database?},
+	howpublished        = {\url{ http://www.makeuseof.com/tag/excel-vs-access-can-spreadsheet-replace-database/}},
+	note = {Accedido: 2016-09-11},
+	year = {2016}
+}
+
+@misc{Wagner2016,
+	author   = {Wagner, Kurt},
+	title     = {Bots, explained},
+	howpublished        = {\url{ http://www.recode.net/2016/4/11/11586022/what-are-bots}},
+	note = {Accedido: 2016-09-11},
+	year = {2016}
+}
+
+@misc{Dans2016,
+	author   = {Dans, Enrique},
+	title     = {El bot como interfaz preferida},
+	howpublished        = {\url{https://www.enriquedans.com/2016/06/el-bot-como-interfaz-preferida.html}},
+	note = {Accedido: 2016-09-11},
+	year = {2016}
+}
+
+@misc{Wright2016,
+	author   = {Wright, David},
+	title     = {Are digital assistants and chat bots the same thing?},
+	howpublished        = {\url{https://www.linkedin.com/pulse/digital-assistants-chat-bots-same-thing-david-wright}},
+	note = {Accedido: 2016-09-13},
+	year = {2016}
+}
+
+
+@misc{Investitech2015,
+	author   = {Investitech},
+	title     = {27 Microsoft Excel Experts Predict the Future of Excel in Business Intelligence},
+	howpublished        = {\url{http://www.investintech.com/resources/blog/archives/5718-experts-predict-the-future-of-excel-in-business-intelligence.html}},
+	note = {Accedido: 2016-09-13},
+	year = {2015}
+}
+
+@article{Ferrara2016,
+	author = {Ferrara, E. and Varol, O. and Davis, C. and Menczer, F. and Flammini, A.},
+	doi = {10.1145/2818717},
+	file = {:E$\backslash$:/Haritz/Dropbox/Books/Papers/Ferrara et al. - 2016 - The rise of social bots.pdf:pdf},
+	issn = {15577317 00010782},
+	journal = {Communications of the ACM},
+	mendeley-groups = {Bots},
+	number = {7},
+	title = {{The rise of social bots}},
+	volume = {59},
+	year = {2016}
+}
+
+@article{Chang2014,
+	author = {Chang, Kerry Shih-Ping and Myers, Brad A},
+	doi = {10.1109/VLHCC.2014.6883042},
+	file = {:E$\backslash$:/Haritz/Dropbox/Books/Papers/Chang, Myers - 2014 - A spreadsheet model for using web service data.pdf:pdf},
+	isbn = {9781479940356},
+	journal = {Visual Languages and Human-Centric Computing (VL/HCC), 2014 IEEE Symposium on},
+	keywords = {end-user programming,mashup,spreadsheet},
+	pages = {169--176},
+	title = {{A spreadsheet model for using web service data}},
+	year = {2014}
+}
+
+
+
+
+
+
+% line in order to check if utf-8 is properly configured: áéíóúñ
