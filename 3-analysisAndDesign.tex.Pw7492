@@ -1,0 +1,85 @@
+\chapter{Análisis y diseño de la solución}
+\label{cha:AnalysisAndDesign}
+
+En este capítulo se hablará del análisis y del diseño adoptado para resolver el problema de generar chatbots. Para ello, como se ha mencionado previamente, se ha definido un artefacto llamado SheetChat. En el Apartado \ref{sec:Requisitos} se hablará de los requisitos que ha de tener el artefacto que permita generar bots. En el Apartado \ref{sec:FeatureModel} se realizará el análisis de las funcionalidades que ha de tener SheetChat. Finalmente, en el Apartado \ref{sec:DataModel} se mostrará cual es el modelo de datos a definir para la generación de agentes conversacionales basados en hojas de cálculo.
+
+\section{Requisitos}
+\label{sec:Requisitos}
+
+En la captura de requisitos hay dos vertientes que hay que tener en cuenta al tratarse de un software generador. Por un lado, hay que prestar atención que el generador cumpla con los requisitos funcionales y no funcionales. Por otro lado, hay que asegurar que el software generado también cumple con los requisitos preestablecidos.
+
+Cabe destacar, tal y como se mencionaba en el Capítulo \ref{cha:Intro} el público objetivo que va a utilizar esta herramienta para el desarrollo, va a ser gente con conocimientos de hojas de cálculo. Ellos mismos también serán los consumidores de la herramienta que generen.
+
+Dado que el usuario que utilizará SheetChat será un usuario con conocimientos para crear sus propias hojas de cálculo, este \textbf{dispondrá de conocimientos de fórmulas matemáticas y de filtrado de datos}. Es por ello que se le debe de proporcionar un lenguaje que permita definir Chatbots con consultas y manipulación de datos más o menos potente.
+
+Sin embargo, el usuario promedio de hojas de cálculo \textbf{no tiene conocimiento de los Chatbots}, qué es una API, un lenguaje de programación o procesamiento del lenguaje natural. Estos aspectos SheetChat deberá de abstraérselos al usuario.
+
+Un aspecto fundamental es cómo se van a definir los Chatbots. La idea a largo plazo es que exista una herramienta gráfica que ayude a generar la sintaxis concreta de manera automática. Sin embargo dado el alcance de este trabajo, es conveniente \textbf{utilizar un lenguaje textual fácilmente legible por los seres humanos}.
+
+En referencia al chatbot generado, este debe de cumplir con algunas características que se definen en el Capítulo \ref{cha:IntroChatbot}, que pueden resultar obvias, pero rara vez se cumplen en los chatbots que existen en la red.
+
+\section{Modelo de características}
+\label{sec:FeatureModel}
+
+El diseño de la solución que se ha adoptado para la generación de chatbots o agentes conversacionales utilizando hojas de cálculo se divide en dos partes claramente diferenciadas. Esto es debido al objetivo que se ha presentado en los anteriores apartados, que es generar un chatbot para la consulta de datos extraídos de hojas de cálculo. Tal y como se puede observar en la Figura \ref{fig:FeatureModel}, por un lado hay que definir el origen de datos, los Sheet u hojas de cálculo. Por otro lado el cómo se consultan los datos, es decir, el chat o flujo de conversación que se define para obtener los resultados.
+
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./figs/FeatureModel.png}
+	\caption{Modelo de características de SheetChat.}
+	\label{fig:FeatureModel}
+\end{figure}
+
+En el Apartado \ref{sec:Sheet} se hablará sobre cómo se manejan las hojas de cálculo para su posterior consulta mediante un chatbot. En el Apartado \ref{sec:Chat} se describirá cómo se define un chatbot, el tipo de consultas (ver Apartado \ref{sec:Queries}) y el procedimiento para hacerlas. Asimismo se mostrará el cómo se realiza la humanización de un chatbot (ver Apartado \ref{sec:Humanization}), que permite mejorar la experiencia de usuario a la hora de conversar.
+
+\subsection{Sheet}
+\label{sec:Sheet}
+
+La palabra Sheet de SheetChat hace referencia a las hojas de cálculo. Las hojas de cálculo son unas herramientas muy potentes que permiten además de generar gráficas o trabajar con complejas funciones matemáticas, el almacenar datos en forma matricial (filas y columnas). Las hojas de cálculo están orientadas al análisis de datos y las bases de datos al almacenamiento de las mismas \cite{Philips2014}, sin embargo, ambas almacenan datos basados en columnas y filas (o tuplas).
+
+En el enfoque de nuestro trabajo, cada hoja de cálculo representa un conjunto de datos en forma de tabla. Al igual que sucede con los ficheros CSV, la primera fila es la cabecera de la tabla, donde se especifica cual es el nombre de cada columna (ver resaltado en azul de la Figura \ref{fig:SheetExample}). Las posteriores filas se traducen en tuplas que serán los datos a consultar.
+
+Se pueden definir tantas hojas de cálculo como origen de datos que se requieran. La única condición es que no tengan el mismo nombre la hoja de cálculo (resaltado en morado en la Figura \ref{fig:SheetExample}) y que los datos estén estructurados de una manera similar a lo que se puede observar en la Figura \ref{fig:SheetExample}.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1.1\textwidth]{./figs/SheetExample.png}
+	\caption{Ejemplo de hoja de cálculo.}
+	\label{fig:SheetExample}
+\end{figure}
+
+A la hora de definir un chatbot se pueden definir más de un origen de datos. En la tecnología utilizada hay que mencionar que se definen hojas de cálculo en Google SpreadSheet\footnote{Sitio web de Google SpreadSheets: \url{https://www.google.com/sheets/about/}}. La principal ventaja que ofrece esta tecnología es que los datos residen en la nube, lo que permite ser accedidos desde cualquier plataforma y en cualquier momento y siempre se dispondrá de la versión más actualizada de los datos a consultar.
+
+Los datos que el usuario requiera consultar no serán datos en bruto, si no que SheetChat permitirá consultas con cierto nivel de riqueza. Para ello se ofrecen funciones matemáticas a la hora de mostrar el resultado o funciones de filtrado. Estas consultas se definen en el sistema de conversación de SheetChat en el Apartado \ref{sec:Queries}.
+
+\subsection{Chat}
+\label{sec:Chat}
+
+El Chat de la palabra SheetChat hace referencia a la conversación que se ha de definir. La conversación es la interfaz de consultas a la hoja de cálculo que tendrá el usuario. Una conversación consiste en un proceso donde el usuario y el chatbot intercambian mensajes hasta que el usuario consigue resolver su duda u obtener la información que requiere. Una conversación puede consistir en un mensaje o más, dependerá en este caso de si el chatbot puede recabar todos los datos necesarios para proporcionar la respuesta.
+
+El proceso de definir un Chat consta de dos partes
+
+\subsubsection{Consultas}
+\label{sec:Queries}
+
+\subsubsection{Humanización}
+\label{sec:Humanization}
+
+Antes de hablar de qué cómo se define la conversación cabe destacar que cada Chatbot ha de disponer un mensaje de bienvenida o ayuda. Este mensaje proporciona feedback (aunque sea a un nivel muy básico) de las funcionalidades que tiene el chatbot. Esto puede resultar útil si se está un periodo largo de tiempo sin usar el chatbot y se le ha olvidado al desarrollador (y usuario a la vez, ya que es para autoconsumo) cual era su cometido.
+
+\section{Modelo de datos}
+\label{sec:DataModel}
+
+\subsection{Metamodelo}
+\label{sec:Metamodel}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1.1\textwidth]{./figs/Metamodel.png}
+	\caption{Modelo de características de SheetChat.}
+	\label{fig:Metamodel}
+\end{figure}
+
+\subsection{Sintaxis concreta}
+\label{sec:ConcreteSyntax}
