@@ -6,7 +6,7 @@ En este capítulo se tratará de abordar uno de los conceptos fundamentales en l
 \section{Definición y contexto de uso}
 \label{sec:DefinicionChatbot}
 
-Un chatbot, bot conversacional o agente conversacional se puede describir como un software para automatizar infinidad de tareas que actualmente desarrollan los usuarios por si mismos, como reservar un restaurante para cenar, añadir un evento al calendario u obtener información \cite{Wagner2016}.
+Un chatbot, bot conversacional o agente conversacional se puede describir como un software para automatizar infinidad de tareas que actualmente desarrollan los usuarios por sí mismos, como reservar un restaurante para cenar, añadir un evento al calendario u obtener información \cite{Wagner2016}.
 
 Un concepto que habitualmente se confunde o se solapa (en cierta medida) con los chatbots son los asistentes personales o asistentes digitales. Ambas ideas comparten algunas características que se presentan a continuación:
 \begin{itemize}
@@ -30,26 +30,26 @@ Detrás de un chatbot de estas características se aúnan diferentes servicios: 
 	\label{fig:Politibot}
 \end{figure}
 
-Cualquiera puede pensar que los bots son un concepto nuevo dentro de las tecnologías de información. Sin embargo, es una idea que lleva desde los comienzos de la informática (uno de los pioneros fue el proyecto ELIZA\footnote{Proyecto ELIZA, un chatbot que simulaba a una psicóloga: \url{https://en.wikipedia.org/wiki/ELIZA}}), aunque en los últimos años está en crecimiento \cite{Ferrara2016}. Esto es debido al aumento de las redes sociales y de los dispositivos interconectados dentro de lo que se conoce cómo el Internet de las Cosas \footnote{Utilización de chatbots como interfaces para el Internet de las cosas: \url{https://iot.telefonica.com/blog/using-smart-chatbots-as-an-iot-interface}}.
+Cualquiera puede pensar que los bots son un concepto nuevo dentro de las tecnologías de la información. Sin embargo, es una idea que lleva desde los comienzos de la informática (uno de los pioneros fue el proyecto ELIZA\footnote{Proyecto ELIZA, un chatbot que simulaba a una psicóloga: \url{https://en.wikipedia.org/wiki/ELIZA}}), aunque en los últimos años está en crecimiento \cite{Ferrara2016}. Esto es debido al aumento de las redes sociales y de los dispositivos interconectados dentro de lo que se conoce cómo el Internet de las Cosas \footnote{Utilización de chatbots como interfaces para el Internet de las cosas: \url{https://iot.telefonica.com/blog/using-smart-chatbots-as-an-iot-interface}}.
 
 Los chatbots proporcionan una interfaz de comunicación en la que se reduce el coste frente a la interacción humana \cite{Dans2016}. De igual manera también porque esta interacción ejerce menor presión en el usuario que quiere realizar consultas. Un bot está disponible para atender consultas 24 horas al día los 7 días de la semana, y puede atender simultáneamente consultas de múltiples usuarios, a diferencia de los humanos.
 
-En el próximo Apartado \ref{sec:PlataformasChatbot} se hará hincapié en las plataformas que ofrecen los chatbots y las características de los mismos.
+En el próximo Apartado \ref{sec:PlataformasChatbot} se hará hincapié en las plataformas que ofrecen chatbots y las características de los mismos.
 
 \section{Plataformas para desarrollo de agentes conversacionales}
 \label{sec:PlataformasChatbot}
 
 Como se ha mencionado en el apartado anterior, los chatbot existen desde hace varias décadas. Sin embargo, con el uso de las tecnologías móviles y el aumento del uso de aplicaciones de chat para conversar \cite{Montag2015}, ha hecho que los bots se hayan puesto en boga nuevamente.
 
-Hay que diferenciar dos aspectos a la hora de hablar de plataformas para los chatbots. Por un lado existen las plataformas donde tiene el chatbot su interfaz, es decir, en qué aplicación o servicio mediante el cual chatea el usuario con el bot, que será en la que se centra este apartado. Por otro lado está la plataforma de desarrollo de los bots, que es la librería o servicio que se utiliza para desarrollar un chatbot que después será desplegado en una o más plataformas.
+Hay que diferenciar dos aspectos a la hora de hablar de plataformas para los chatbots. Por un lado existen las plataformas donde tiene el chatbot su interfaz. La interfaz de un chatbot es una aplicación o un servicio web por el cual chatea el usuario con el bot. Este apartado hablará de estas plataformas. Por otro lado está la plataforma de desarrollo de los bots, que es la librería o servicio que se utiliza para desarrollar un chatbot que después será desplegado en una o más plataformas de interfaz.
 
-En referencia a la interfaz de los chatbots, en la actualidad muchas empresas ofrecen su plataforma como interfaz para interactuar con los chatbots. Entre ellas destacan: Facebook, Twitter, Telegram, Microsoft Skype o Slack. Sin embargo, empresas como Kik llevan trabajando años en el area de los chatbots \footnote{¿Como predijo Kik el crecimiento del uso de los chatbots? \url{https://backchannel.com/how-kik-predicted-the-rise-of-chat-bots-2eaf9027b86e}}.
+En referencia a la interfaz de los chatbots, en la actualidad muchas empresas ofrecen su plataforma como interfaz para interactuar con los chatbots. Entre ellas destacan: Facebook, Twitter, Telegram, Microsoft Skype o Slack. Sin embargo, empresas como Kik llevan desde hace años trabajando y ofreciendo su plataforma para el consumo de chatbots\footnote{¿Como predijo Kik el crecimiento del uso de los chatbots? \url{https://goo.gl/Cd5OVc}}.
 
-La plataforma de desarrollo están muy ligada a la interfaz. Volviendo al ejemplo de politibot, en la Figura \ref{fig:PolitibotBotones} se observa como la interfaz de Telegram proporciona botones con las diferentes opciones que el usuario puede elegir para interactuar con el bot. Esta característica es particular de Telegram, que por ejemplo Slack no dispone. Sin embargo, otras plataformas ofrecen otras características que Telegram no contempla.
+La plataforma de desarrollo está muy ligada a la interfaz. Volviendo al ejemplo de Politibot, en la Figura \ref{fig:PolitibotBotones} se observa como la interfaz de Telegram proporciona botones con las diferentes opciones que el usuario puede elegir para interactuar con el bot. Esta característica es particular de Telegram, que por ejemplo Slack no dispone. Sin embargo, otras plataformas ofrecen otras características que Telegram no soporta, por lo que hay que evaluar las diferentes plataformas antes de desarrollar un chatbot.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./figs/PolitibotBotones.png}
-	\caption{El chatbot define las posibles opciones que ofrece para responder mediante botones en lugar de esperar un mensaje textual.}
+	\caption{El chatbot define las opciones de interacción que ofrece mediante botones en lugar de esperar un mensaje textual.}
 	\label{fig:PolitibotBotones}
 \end{figure}
 
@@ -59,7 +59,7 @@ En este trabajo, se ha decidido trabajar con la librería Botkit \footnote{Sitio
 \begin{itemize}
 	\item Es multiplataforma, actualmente soporta Slack, Facebook Messenger\footnote{Sitio web de Facebook Messenger:\url{https://facebook.com/}} y Twilio IP Messaging\footnote{Sitio web de Twilio: \url{https://www.twilio.com/docs/api/ip-messaging}}.
 	\item Es software libre, lo que permite ver el código fuente y modificarlo, además de que no tiene ningún coste económico.
-	\item Es sencillo de desarrollar, permite abstraer bastante la implementación a bajo nivel de los chatbots, que es compleja debido a las llamadas asíncronas y las conexiones a múltiples servicios que trabaja por debajo.
+	\item Es sencillo de desarrollar, permite abstraer bastante la implementación a bajo nivel de los chatbots, que es compleja debido a las llamadas asíncronas y las conexiones a múltiples servicios que trabajan por debajo.
 \end{itemize}
 
 Para profundizar en las características de implementación sobre Botkit es conveniente revisar el Capítulo \ref{cha:Implementation}.

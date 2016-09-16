@@ -1,12 +1,12 @@
 \chapter{Trabajo Futuro y Conclusiones}
 \label{cha:FutureWorkAndConclusions}
 
-En este capítulo se divide en dos apartados. En el Apartado \ref{sec:FutureWork} se hablará del trabajo futuro y de las mejoras que se puedan aplicar a este trabajo. En el Apartado \ref{sec:Conclusions} se extraerán unas conclusiones obtenidas durante el desarrollo del trabajo.
+Este capítulo se divide en dos apartados. En el Apartado \ref{sec:FutureWork} se hablará del trabajo futuro y de las mejoras que se puedan aplicar a este trabajo. En el Apartado \ref{sec:Conclusions} se extraerán unas conclusiones obtenidas durante el desarrollo del trabajo.
 
 \section{Trabajo futuro}
 \label{sec:FutureWork}
 
-El trabajo presentado en este proyecto sirve como prueba conceptual para demostrar que la solución al problema detectado puede ser factible. Está claro que un componente que demostrará, si además de ser factible, es útil es la evaluación de la propia herramienta con usuarios de hoja de cálculo. Es por ello que resulta difícil de vaticinar cuales son los siguientes pasos a dar en el desarrollo de esta idea, ya que irán claramente asociada a esa evaluación y feedback que puedan proporcionar los usuarios.
+El trabajo presentado en este proyecto sirve como prueba conceptual para demostrar que la solución al problema detectado puede ser factible. Está claro que un componente que demostrará, si además de ser factible, es útil es la evaluación de la propia herramienta con usuarios de hojas de cálculo. Es por ello que resulta difícil de vaticinar cuales son los siguientes pasos a dar en el desarrollo de esta idea, ya que irán claramente asociada a esa evaluación y feedback que puedan proporcionar los usuarios.
 
 Sin embargo, a lo largo del desarrollo se han detectado algunos aspectos de mejora en lo que a la herramienta se refiere. En concreto se han dividido en los siguientes aspectos: enriquecimiento del diseño del DSL, usabilidad de los chatbot generados, el ecosistema de plataformas utilizado para su desarrollo y la actualización de los datos de las hojas de cálculo.
 
@@ -14,23 +14,23 @@ Sin embargo, a lo largo del desarrollo se han detectado algunos aspectos de mejo
 
 El DSL diseñado permite la creación de consultas abstrayendo al usuario del conocimiento de un lenguaje como es SQL. A pesar de que esto resulta positivo, se ha detectado que el actual diseño del DSL no permite realizar consultas que puede que sean bastantes habituales, especialmente sobre datos tabulares extraídos de sitios web de manera automática.
 
-De igual manera, el lenguaje de tipado JSON, a pesar de que sea legible por el humano y fácilmente generable, no es un lenguaje con el que el usuario se sienta excesivamente cómodo. Esto es debido a que el usuario final de esta herramienta es posible que no conozca JSON. A pesar de que no hay una evaluación de por medio, es posible que utilizar hojas de cálculo también para definir los chatbots sea más intuitivo para los usuarios.
+De igual manera, el lenguaje de tipado JSON, a pesar de que sea legible por el humano y fácilmente generable, no es un lenguaje con el que el usuario se sienta excesivamente cómodo. Esto es debido a que el usuario final de esta herramienta es posible que no conozca JSON. A pesar de que no hay una evaluación de por medio, puede resultar más adecuado utilizar hojas de cálculo también para definir los chatbots haciéndolo más intuitivo para los usuarios.
 
 Como se ha comentado a lo largo del trabajo, la idea es que una herramienta, posiblemente gráfica, sea capaz de ayudar (o sustituir) en la elaboración de este esquema para definir las propiedades necesarias para la creación de un Sheetchat. En esta herramienta será fundamental ver cuánto se requiere para la realización de un chatbot que cubra las necesidades de los usuarios.
 
 \subsection{Usabilidad de los Chatbot generados}
 
-El sistema de sugerencias desarrollado es bastante espartano, ya que se utiliza una función de aleatorización para ir mostrando diferentes sugerencias cada vez que el usuario introduzca entidades que no existen. Sin embargo puede ser que el usuario esté cometiendo un error tipográfico y que el bot le esté indicando constantemente que esa entidad no existe. En este caso, la experiencia de usuario mejoraría considerablemente.
+El sistema de sugerencias desarrollado es bastante espartano, ya que se utiliza una función de aleatorización para ir mostrando diferentes sugerencias cada vez que el usuario introduzca entidades que no existen. Sin embargo puede ser que el usuario esté cometiendo un error tipográfico y que el bot le esté indicando constantemente que esa entidad no existe, pero no que se trate de un error tipográfico. En este caso, la experiencia de usuario mejoraría considerablemente utilizando lo que en los buscadores web se denomina el "quizá quiso decir...".
 
-A pesar de que se ha trabajado en aspectos de humanización, hay que ver si son realmente útiles o suficientes. También sería conveniente ver si hay más patrones de diseño de chatbots de manera que se pueda equiparar los chatbots que hay en el mercado con los que se generan con esta herramienta. Aplicando un patrón de diseño se obtienen chatbots con funcionalidades similares, lo que simplificaría el proceso de aprendizaje para usar el chatbot.
+A pesar de que se ha trabajado en aspectos de humanización, hay que ver si son realmente útiles o suficientes. También sería conveniente ver si hay más patrones de diseño de chatbots de manera que se pueda equiparar los chatbots que hay en el mercado con los que se generan con esta herramienta. Aplicando un patrón de diseño se obtienen chatbots con funcionalidades similares, lo que simplificaría el proceso de aprendizaje para usar nuevos chatbot.
 
 \subsection{Ecosistema de plataformas}
 
-Sería conveniente realizar un estudio más en profundidad de las plataformas y librerías para desarrollo y despliegue de agentes conversacionales.
+Sería conveniente realizar un estudio en mayor profundidad de las plataformas y librerías para desarrollo y despliegue de agentes conversacionales.
 
 Para este trabajo se ha utilizado Botkit, que es una librería muy sencilla y muy potente junto con el middleware de Wit.ai. Sin embargo, su desarrollo no es demasiado continuado y solo ofrece soporte para tres plataformas como son Slack, Facebook Messenger y Twilio. 
 
-Entre las alternativas, Microsoft Bot Framework está cogiendo mucha fuerza debido a que es capaz de generar bots para muchas más plataformas. Sería interesante ver qué plataformas son las más usadas. La tendencia actual es que Facebook Messenger y Slack son de las más utilizadas \footnote{Encuesta a la comunidad de desarrolladores de chatbots: \url{http://venturebeat.com/2016/09/14/early-results-of-bot-community-survey-show-messenger-and-slack-as-the-developers-top-platforms/}}.
+Entre las alternativas, Microsoft Bot Framework está cogiendo mucha fuerza debido a que es capaz de generar bots para muchas más plataformas. Sería interesante también ver qué servicios para proveer chatbots son las más usadas. La tendencia actual es que Facebook Messenger y Slack son de las más utilizadas \footnote{Encuesta a la comunidad de desarrolladores de chatbots: \url{http://venturebeat.com/2016/09/14/early-results-of-bot-community-survey-show-messenger-and-slack-as-the-developers-top-platforms/}}.
 
 \subsection{Hojas de cálculo}
 
@@ -47,11 +47,11 @@ Además de los sitios web html como fuente de información, los servicios web RE
 
 El desarrollo de este trabajo ha permitido ofrecer una respuesta a la problemática de cómo acceder a datos de una hoja de cálculo en un entorno móvil.
 
-Lo novedoso de la solución es que utiliza el lenguaje natural como interfaz para realizar consultas a una hoja de cálculo \cite{Flood2010}. La generación de consultas SQL a partir de las definiciones de Intents y Entidades proporciona una abstracción sobre el propio lenguaje SQL. Para gente que no tenga conocimientos de SQL poder consultar en bases de datos utilizando el lenguaje natural es muy ventajoso. Sin embargo, a la vez que la generación de consultas SQL a partir de Intents y Entidades tiene sus ventajas, la limitación que tiene también queda patente.
+Lo novedoso de la solución es que utiliza el lenguaje natural como interfaz para realizar consultas a una hoja de cálculo \cite{Flood2010}. La generación de consultas SQL a partir de las definiciones de Intents y Entidades proporciona una abstracción sobre el propio lenguaje SQL. Para gente que no tenga conocimientos de SQL poder consultar en bases de datos utilizando el lenguaje natural puede resultar muy ventajoso. Sin embargo, a la vez que la generación de consultas SQL a partir de Intents y Entidades tiene sus ventajas, la limitación que tiene también queda patente.
 
-Los aspectos de humanización en un chatbot son fundamentales, incluso siendo para autoconsumo en el que el usuario/desarrollador conozca todos los aspectos del chatbot. Estos aspectos de humanización presentan una interfaz más cercana al usuario y mejoran la experiencia de usuario reduciendo costes temporales.
+Los aspectos de humanización en un chatbot son fundamentales, incluso siendo para de autoconsumo, en el que el usuario/desarrollador conozca todos los aspectos del chatbot. Estos aspectos de humanización presentan una interfaz más cercana al usuario y mejoran la experiencia de usuario reduciendo costes temporales especialmente en el proceso de aprendizaje del uso del chatbot.
 
-Aplicando patrones de diseño como el de obligar a definir un mensaje de bienvenida se resuelven muchos problemas. Estos problemas, aunque parezca increible, hay muchos bots de terceros en la web que tienen esta carencia.Esto provoca que un usuario descarte la posibilidad de usar este chatbot porque no puede sabe ni tan siquiera qué hace el bot.
+Aplicando patrones de diseño como el de obligar a definir un mensaje de bienvenida se resuelven muchos problemas. Esta cuestión, aunque parezca increíble, hay gran cantidad de bots de terceros en la web que aún no la resuelven. Esto provoca que un usuario descarte la posibilidad de usar estos chatbots. La razón principal es que el usuario no puede saber ni tan siquiera para qué fue diseñado el bot.
 
 
 
